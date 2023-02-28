@@ -17,7 +17,7 @@ class Markets:
         Returns:
             dict: The list of markets
         """
-        return self.client.get("markets").json()
+        return self.client.get("markets").json().get("markets", [])
 
     def __iter__(self) -> Generator[str, None, None]:
         yield from self.as_list()
